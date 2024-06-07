@@ -1,24 +1,19 @@
 import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Menu } from './components/Menu';
-import { BoxBar } from './components/BoxBar';
+import { AddBoxBar } from './components/AddBoxBar';
+import { Item1 } from './components/Item1';
 
 export const App = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [boxes, setBoxes] = useState<string[]>([]);
-    const [inputValue, setInputValue] = useState('');
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const handleAddBox = () => {
-        setBoxes([...boxes, inputValue]);
-        setInputValue('');
-    };
-
     return (
-        <>
-            <div
+        <Router>
+            <div id="top"
                 style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -40,7 +35,7 @@ export const App = () => {
                     }}
                     onClick={toggleMenu}
                 >
-                    ☰
+                    &#9776;
                 </button>
                 <span
                     style={{
@@ -54,40 +49,10 @@ export const App = () => {
                 </span>
             </div>
             {isMenuOpen && <Menu />}
-            <div style={{ marginTop: '22.5vw', padding: '3.5vw' }}>
-                <input
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    style={{
-                        fontSize: '15px',
-                        padding: '2vw 2vw',
-                        marginRight: '2vw',
-                        backgroundColor: '#ddd',
-                        border: 'none',
-                        borderRadius: '0.5vw'
-                    }}
-                />
-                <button
-                    onClick={handleAddBox}
-                    style={{
-                        fontSize: '15px',
-                        padding: '2vw 4vw',
-                        backgroundColor: '#28a745',
-                        color: '#fff',
-                        border: 'none',
-                        cursor: 'pointer',
-                        borderRadius: '0.5vw'
-                    }}
-                >
-                    add
-                </button>
-            </div>
-            <div className="context">
-                {boxes.map((box, index) => (
-                    <BoxBar key={index} text={box} />
-                ))}
-            </div>
-        </>
+            <Routes>
+                <Route path="/" element={<AddBoxBar />} />
+                <Route path="/item1" element={<Item1 />} />
+            </Routes>
+        </Router>
     );
 };
