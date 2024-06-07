@@ -19,22 +19,22 @@ export const Menu = () => {
         >
             <ul style={{ listStyle: 'none', paddingLeft: '5vw', fontWeight: "bold" }}>
                 <li>
-                <Link 
-                        to="/" 
-                        style={{ 
-                            textDecoration: 'none', 
-                            color: 'inherit' 
+                <Link
+                        to="/"
+                        style={{
+                            textDecoration: 'none',
+                            color: 'inherit'
                         }}
                     >
                         Top
                     </Link>
                 </li>
                 <li>
-                    <Link 
-                        to="/item1" 
-                        style={{ 
-                            textDecoration: 'none', 
-                            color: 'inherit' 
+                    <Link
+                        to="/item1"
+                        style={{
+                            textDecoration: 'none',
+                            color: 'inherit'
                         }}
                     >
                         Item 1
