@@ -1,0 +1,29 @@
+.top-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 5vw;
+    left: 5vw;
+}
+
+.top-button {
+    width: 12.5vw;
+    height: 12.5vw;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.top-text {
+    margin-left: 5vw;
+    font-size: 5vw;
+    color: #000;
+    font-weight: bold;
+}
+
+.context {
+    margin-top: 22.5vw;
+}
