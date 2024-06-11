@@ -25,7 +25,7 @@ erDiagram
 
   user {
     string user_id "ユーザID"
-    string password "パスワード
+    string password "パスワード"
 
   }
 
