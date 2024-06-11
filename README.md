@@ -30,9 +30,9 @@ erDiagram
   }
 
   hobby {
-    receiver receiver_id FK "receiverID"
-    bigint hobby_id PK "hobby ID"
-    string hobby "hobby"
+    receiver receiver_id FK "受け取り手ID"
+    bigint hobby_id PK "趣味ID"
+    string hobby "趣味"
   }
 
   receiver {
