@@ -62,8 +62,8 @@ erDiagram
   }
 
   gift_history {
-     receiver receiver_id FK "受け取り手ID"
-     bigint gift_history_id PK "ギフト履歴ID"
+     receiver receiver_id "受け取り手ID"
+     bigint gift_history_id "ギフト履歴ID"
      string gift "ギフトの内容"
   }
 ```
