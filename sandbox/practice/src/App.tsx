@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Menu } from './components/Menu';
 import { AddBoxBar } from './components/AddBoxBar';
 import { Item1 } from './components/Item1';
+import { Button1 } from './components/Button1';
 
 export const App = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +52,12 @@ export const App = () => {
             {isMenuOpen && <Menu />}
             <Routes>
                 <Route path="/" element={<AddBoxBar />} />
-                <Route path="/item1" element={<Item1 />} />
+                <Route path="/item1" element={
+                    <>
+                        <Item1 /> {/* Item1を配置*/}
+                        <Button1 />
+                    </>
+                } />
             </Routes>
         </Router>
     );
