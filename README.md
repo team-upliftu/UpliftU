@@ -30,14 +30,14 @@ erDiagram
   }
 
   hobby {
-    bigint receiver_id "受け取り手ID"
+    receiver receiver_id FK "受け取り手ID"
+    bigint hobbies_id PK 趣味ID"
     string hobby "趣味"
-    receiver hobbies_id "趣味ID"
   }
 
   receiver {
-    project project_id "プロジェクトID"
-    bigint receiver_id "受け取り手ID"
+    project project_id FK "プロジェクトID"
+    bigint receiver_id PK "受け取り手ID"
     bigint hobbies_id "趣味ID"
     bigint age "年齢"
     bool gender "性別"
@@ -46,8 +46,8 @@ erDiagram
   }
 
   project {
-    user user_id "ユーザID"
-    bigint project_id "プロジェクトID"
+    user user_id FK "ユーザID"
+    bigint project_id PK "プロジェクトID"
     bigint question_amount "目標質問数"
     bigint receiver_id "受け取り手のID"
     string genre "プレゼントのジャンル"
@@ -55,15 +55,15 @@ erDiagram
   }
 
   message {
-    project project_id "プロジェクトID"
-    bigint message_id "メッセージID"
+    project project_id FK "プロジェクトID"
+    bigint message_id PK "メッセージID"
     string question "質問"
     string answer "質問の答え"
   }
 
   gift_history {
-     bigint gift_history_id "ギフト履歴ID"
-     receiver receiver_id "受け取り手ID"
+     receiver receiver_id FK"受け取り手ID"
+     bigint gift_history_id PK "ギフト履歴ID"
      string gift "ギフトの内容"
   }
 ```
