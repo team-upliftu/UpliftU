@@ -43,5 +43,5 @@ GET, PUT, PATCH, DELETE /gift_histories/{gift_history_id}
 - message
 POST /messages
 GET /messages (& project={project_id})
-GET, PUT, PATCH, DELETE /messages/{message_id} 
+GET, PUT, PATCH, DELETE /messages/{message_id}
 ```
