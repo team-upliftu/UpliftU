@@ -23,7 +23,6 @@ erDiagram
   receiver ||--o{ hobby : "レシーバーとホビーズは一対0以上"
   receiver ||--o{ gift_history : "レシーバーとギフトヒストリーは一対0以上"
 
-
   user {
   }
 
