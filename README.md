@@ -19,7 +19,7 @@ npm run dev
 erDiagram
   user ||--o{ project : "ユーザとプロジェクトは一対0以上"
   project ||--|| receiver : "プロジェクトとレシーバーは一対1"
-  project ||--o{ massage : "プロジェクトとメッセージズは一対0以上"
+  project ||--o{ message : "プロジェクトとメッセージズは一対0以上"
   receiver ||--o{ hobby : "レシーバーとホビーズは一対0以上"
   receiver ||--o{ gift_history : "レシーバーとギフトヒストリーは一対0以上"
 
