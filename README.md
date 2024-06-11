@@ -24,6 +24,9 @@ erDiagram
   receiver ||--o{ gift_history : "受け取り手とギフト履歴は一対0以上"
 
   user {
+    string user_id PK "ユーザID"
+    string password "パスワード
+
   }
 
   hobby {
