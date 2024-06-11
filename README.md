@@ -18,10 +18,10 @@ npm run dev
 ```mermaid
 erDiagram
   user ||--o{ project : "ユーザとプロジェクトは一対0以上"
-  project ||--|| receiver : "プロジェクトとレシーバーは一対1"
-  project ||--o{ message : "プロジェクトとメッセージズは一対0以上"
-  receiver ||--o{ hobby : "レシーバーとホビーズは一対0以上"
-  receiver ||--o{ gift_history : "レシーバーとギフトヒストリーは一対0以上"
+  project ||--|| receiver : "プロジェクトと受け取り手は一対1"
+  project ||--o{ message : "プロジェクトとメッセージは一対0以上"
+  receiver ||--o{ hobby : "受け取り手と趣味は一対0以上"
+  receiver ||--o{ gift_history : "受け取り手とギフト履歴は一対0以上"
 
   user {
   }
