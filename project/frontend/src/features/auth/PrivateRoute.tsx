@@ -18,5 +18,7 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
     return element;
   }
 
-  return <Navigate to="/signin" />;
+  return <Navigate to="/startscreen" />;
 };
+
+export default PrivateRoute;
