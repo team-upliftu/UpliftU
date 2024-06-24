@@ -131,7 +131,7 @@ export const ProjectPage: React.FC = () => {
         top: '7.5vw',
       }} onClick={handleNavigateHome}/>
       <Title>{recipientName_first}{recipientName_last}さんのプロジェクト</Title>
-      <Paper sx={{ padding: '15px', borderRadius: '25px', backgroundColor: '#565CB3', margin: '25px' }}>
+      <Paper sx={{ padding: '15px', borderRadius: '25px', backgroundColor: '#333', margin: '25px' }}>
         <Typography sx={{
           fontSize: '22.5px',
           color: '#fff',
@@ -173,7 +173,7 @@ export const ProjectPage: React.FC = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginTop: '2vw',
-          backgroundColor: '#9EA1D4',
+          backgroundColor: '#76ABAE',
           borderRadius: '20px',
           padding: '12.5px 30px',
         }}>
@@ -185,7 +185,7 @@ export const ProjectPage: React.FC = () => {
             次の質問まで<br />あと {daysLeft} 日
           </Typography>
           <Button variant="contained" sx={{
-            backgroundColor: '#fff',
+            backgroundColor: '#eee',
             color: '#333',
             borderRadius: '15px',
             fontSize: '15px',

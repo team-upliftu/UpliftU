@@ -14,7 +14,7 @@ const Bar = styled('div')({
   alignItems: 'center',
   width: "90vw",
   height: "17.5vw",
-  backgroundColor: "#BFC1E2",
+  backgroundColor: "#ddd",
   borderRadius: "15px",
   margin: "auto",
   marginTop: "2.5vw",
