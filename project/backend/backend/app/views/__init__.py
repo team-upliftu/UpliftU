@@ -3,6 +3,7 @@ from .receiver import ReceiverViewSet
 from .giftHistory import GiftHistoryViewSet
 from .message import MessageViewSet
 from .project import ProjectViewSet
+from .user import CustomUserViewSet
 
 __all__ = [
     "ReceiverViewSet",
@@ -10,4 +11,5 @@ __all__ = [
     "GiftHistoryViewSet",
     "MessageViewSet",
     "ProjectViewSet",
+    "CustomUserViewSet",
 ]

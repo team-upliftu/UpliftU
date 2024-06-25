@@ -3,6 +3,7 @@ from .receiver import ReceiverSerializer
 from .giftHistory import GiftHistorySerializer
 from .message import MessageSerializer
 from .project import ProjectSerializer
+from .user import CustomUserSerializer
 
 __all__ = [
     "ReceiverSerializer",
@@ -10,4 +11,5 @@ __all__ = [
     "GiftHistorySerializer",
     "MessageSerializer",
     "ProjectSerializer",
+    "CustomUserSerializer",
 ]
