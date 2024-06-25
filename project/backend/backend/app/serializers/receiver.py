@@ -4,4 +4,4 @@ from ..models import Receiver
 class ReceiverSerializer(serializers.ModelSerializer):
     class Meta:
         model = Receiver
-        fields = ["id", "age", "gender", "relationship"]
+        fields = ["id", "age", "gender", "relationship", "receiver_name", "hobbies"]
