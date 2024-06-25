@@ -35,6 +35,22 @@ export const FormikTextField = <T extends {}>(
           ? props.formik.errors[props.name]
           : ""
       )}
+      InputProps={{
+        style: {
+          backgroundColor: '#eee', // フィールドの背景色
+          borderRadius: '10px',
+          border: '1px solid #eee', // 外側の枠線を灰色に設定
+          height: "11vw",
+          paddingLeft: "5vw",
+          paddingTop: "1.5vw",
+        },
+        disableUnderline: true // アンダーラインを無効にする
+      }}
+      InputLabelProps={{
+        style: {
+          color: '#eee', // ラベルの色を灰色に設定
+        },
+      }}
     />
   );
 };

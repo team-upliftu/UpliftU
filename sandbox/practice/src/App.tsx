@@ -13,7 +13,7 @@ export const App = () => {
     };
 
     return (
-        <Router>
+        <Router><a></a>
             <div id="top"
                 style={{
                     display: 'flex',

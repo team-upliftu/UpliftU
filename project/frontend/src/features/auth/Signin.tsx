@@ -1,22 +1,29 @@
 import {
-    Avatar,
-    Box,
-    Button,
-    Grid,
-    Paper,
-    Stack,
-    Typography,
-  } from "@mui/material";
+  Button,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useFormik } from "formik";
 import React, { useLayoutEffect, useState } from "react";
 import * as Yup from "yup";
+import { styled } from '@mui/material/styles';
 
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Link, useNavigate } from "react-router-dom";
 import { FormikTextField } from "../../components/FormikTextField";
 import { fetchAsyncLoginUser } from "./api";
 import { useAuthContext } from "./AuthContext";
 import Loading from "../../components/Loading";
+
+const TextArea = styled('div')({
+  fontSize: '17.5px',
+  fontWeight: 'bold',
+  color: '#333333',
+  paddingLeft: "5vw",
+  marginTop: "5vw",
+  marginBottom: "1vw",
+});
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -26,7 +33,7 @@ const validationSchema = Yup.object().shape({
 });
 
 // サインインを実装します。
-const Signin: React.FC = () => {
+export const Signin: React.FC = () => {
   const navigate = useNavigate();
   const { isAuth, isLoading, signin } = useAuthContext();
   const [loginError, setLoginError] = useState("");
@@ -65,55 +72,76 @@ const Signin: React.FC = () => {
   }
 
   return (
-    <Grid sx={{ width: "100vw" }}>
+    <Grid container sx={{
+      height: "100vh",
+      justifyContent: "center",
+      alignItems: "center"
+    }}>
       <Paper
         elevation={3}
         sx={{
           p: 4,
-          height: "100%",
-          width: "360px",
-          m: "20px auto",
+          width: "100vw",
+          height: "100vh",
+          paddingTop: "25vh",
         }}
       >
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "center", marginBottom: "50px", marginTop: "20px" }}>
-          <img
-      src="https://raw.githubusercontent.com/flatp/yuruimage/main/logo.png"
-      alt="Sample Image"
-      style={{
-        position: 'fixed',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '100px',
-        height: 'auto',
-        zIndex: 1000 
-      }}
-    />
-        </Box>
-        <Typography>Signin</Typography>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "#FB5555",
+            fontSize: "30px",
+            fontWeight: "bold",
+            textAlign: "left",
+            marginBottom: "30px",
+            paddingLeft: "5vw",
+          }}
+        >
+          ログイン
+        </Typography>
         <form noValidate onSubmit={formik.handleSubmit}>
-          <Stack spacing={2}>
+          <Stack>
+            <TextArea>メールアドレス</TextArea>
             <FormikTextField
               name="email"
-              label="Email *"
+              label=""
               variant="standard"
               formik={formik}
             />
+            <TextArea>パスワード</TextArea>
             <FormikTextField
               name="password"
-              label="Password *"
+              label=""
               variant="standard"
               type="password"
               formik={formik}
             />
-            <Button fullWidth variant="contained" type="submit">
-              Signin
+            <Button variant="contained" type="submit" sx={{
+              backgroundColor: "#FD8A8A",
+              width: "60vw",
+              fontSize: '18px',
+              fontWeight: 'bold',
+              color: '#333',
+              borderRadius: '20px',
+              padding: '9px',
+              margin: "auto",
+              marginTop: "10vw",
+              marginBottom: "5vw",
+              }}>
+              ログイン
             </Button>
             {loginError && (
               <div style={{ color: "red", marginTop: "10px" }}>
                 {loginError}
               </div>
             )}
-            <Link to={"/signup"}>Create account</Link>
+            <Typography sx={{
+              textAlign: "center",
+              fontSize: '15px',
+              fontWeight: "bold",
+            }}>
+              アカウントをお持ちですか？ <Link to={"/signup"}>アカウント作成</Link>
+            </Typography>
           </Stack>
         </form>
       </Paper>

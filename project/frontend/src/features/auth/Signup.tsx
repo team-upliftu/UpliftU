@@ -1,6 +1,4 @@
 import {
-    Avatar,
-    Box,
     Button,
     Grid,
     Paper,
@@ -10,8 +8,7 @@ import {
 import { useFormik } from "formik";
 import React, { useLayoutEffect } from "react";
 import * as Yup from "yup";
-
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { styled } from '@mui/material/styles';
 
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "./AuthContext";
@@ -19,8 +16,17 @@ import Loading from "../../components/Loading";
 import { FormikTextField } from "../../components/FormikTextField";
 import { fetchAsyncSignup } from "./api";
 
+const TextArea = styled('div')({
+  fontSize: '17.5px',
+  fontWeight: 'bold',
+  color: '#333333',
+  paddingLeft: "5vw",
+  marginTop: "5vw",
+  marginBottom: "1vw",
+});
+
 // ユーザーを作成するためのサインアップフォームを実装します。
-const Signup: React.FC = () => {
+export const Signup: React.FC = () => {
   const { isAuth, isLoading } = useAuthContext();
   const navigate = useNavigate();
 
@@ -67,65 +73,88 @@ const Signup: React.FC = () => {
   }
 
   return (
-    <Grid sx={{ width: "100vw" }}>
+    <Grid container sx={{
+      height: "100vh",
+      justifyContent: "center",
+      alignItems: "center"
+    }}>
       <Paper
         elevation={3}
         sx={{
           p: 4,
-          height: "100%",
-          width: "360px",
-          m: "20px auto",
+          width: "100vw",
+          height: "100vh",
+          paddingTop: "12.5vh",
         }}
       >
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "center", marginBottom: "50px", marginTop: "20px" }}>
-        <img
-      src="https://raw.githubusercontent.com/flatp/yuruimage/main/logo.png"
-      alt="Sample Image"
-      style={{
-        position: 'fixed',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '100px',
-        height: 'auto',
-        zIndex: 1000 
-      }}
-    />
-        </Box>
-        <Typography>Signup</Typography>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "#FB5555",
+            fontSize: "30px",
+            fontWeight: "bold",
+            textAlign: "left",
+            marginBottom: "30px",
+            paddingLeft: "5vw",
+          }}
+        >
+          アカウントを<br/>作成
+        </Typography>
         <form noValidate onSubmit={formik.handleSubmit}>
-          <Stack spacing={2}>
+          <Stack>
+            <TextArea>名前</TextArea>
             <FormikTextField
               name="userName"
-              label="Username *"
+              label=""
               variant="standard"
               formik={formik}
             />
+            <TextArea>メールアドレス</TextArea>
             <FormikTextField
               name="email"
-              label="Email *"
+              label=""
               variant="standard"
               formik={formik}
             />
+            <TextArea>パスワード</TextArea>
             <FormikTextField
               name="password"
-              label="Password *"
+              label=""
               variant="standard"
               type="password"
               autoComplete="new-password"
               formik={formik}
             />
+            <TextArea>パスワード (確認用)</TextArea>
             <FormikTextField
               name="confirmPassword"
-              label="Confirm Password *"
+              label="C"
               variant="standard"
               type="password"
               autoComplete="new-password"
               formik={formik}
             />
-            <Button fullWidth variant="contained" type="submit">
-              Submit
+            <Button variant="contained" type="submit" sx={{
+              backgroundColor: "#FD8A8A",
+              width: "60vw",
+              fontSize: '18px',
+              fontWeight: 'bold',
+              color: '#333',
+              borderRadius: '20px',
+              padding: '9px',
+              margin: "auto",
+              marginTop: "10vw",
+              marginBottom: "5vw",
+              }}>
+              アカウント作成
             </Button>
-            <Link to={"/signin"}>Or Sign in</Link>
+            <Typography sx={{
+              textAlign: "center",
+              fontSize: '15px',
+              fontWeight: "bold",
+            }}>
+              アカウントをお持ちですか？ <Link to={"/signin"}>ログイン</Link>
+            </Typography>
           </Stack>
         </form>
       </Paper>
