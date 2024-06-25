@@ -19,7 +19,7 @@ from django.urls import include, path
 from rest_framework import routers
 
 from app.views.receiver import ReceiverViewSet
-from app.views.hobbies import HobbiesViewSet
+# from app.views.hobbies import HobbiesViewSet
 from app.views.message import MessageViewSet
 from app.views.project import ProjectViewSet
 from app.views.giftHistory import GiftHistoryViewSet
@@ -27,7 +27,7 @@ from app.views.giftHistory import GiftHistoryViewSet
 
 router = routers.DefaultRouter()
 router.register('receiver', ReceiverViewSet)
-router.register('hobbies',HobbiesViewSet)
+# router.register('hobbies',HobbiesViewSet)
 router.register('message',MessageViewSet)
 router.register('project',ProjectViewSet)
 router.register('giftHistory',GiftHistoryViewSet)

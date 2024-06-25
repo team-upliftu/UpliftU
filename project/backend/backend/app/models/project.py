@@ -12,4 +12,8 @@ class Project(models.Model):
     giftPurchaseDate : models.DateTimeField = models.DateTimeField(help_text="プレゼント買う日")
     giftGivingDate : models.DateTimeField = models.DateTimeField(help_text="プレゼント贈る日")
     receiver : models.ForeignKey = models.ForeignKey(Receiver, on_delete=models.PROTECT, help_text="受け取り手", related_name="project")
+    project_name : models.CharField = models.CharField(max_length=255, help_text="プロジェクト名")
+    budget = models.PositiveIntegerField(help_text="予算")
+    present_purpose = models.CharField(max_length=255, help_text="プレゼントの目的")
+    frequency = models.PositiveIntegerField(help_text="頻度")
     #user
