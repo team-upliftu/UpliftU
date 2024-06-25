@@ -13,3 +13,18 @@ class CustomUserSerializer(serializers.ModelSerializer):
         ハッシュ値に変換する
         """
         return make_password(value)
+    
+from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
+
+class UserCreateSerializer(BaseUserCreateSerializer):
+    class Meta(BaseUserCreateSerializer.Meta):
+        model = CustomUser
+        fields = ('email', 'user_name', 'password')
+
+    def validate(self, attrs):
+        print("Debug: attrs =", attrs)  # デバッグメッセージ
+        return super().validate(attrs)
+
+    def create(self, validated_data):
+        user = CustomUser.objects.create_user(**validated_data)
+        return user

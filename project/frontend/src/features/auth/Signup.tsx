@@ -1,10 +1,4 @@
-import {
-    Button,
-    Grid,
-    Paper,
-    Stack,
-    Typography,
-  } from "@mui/material";
+import { Button, Grid, Paper, Stack, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import React, { useLayoutEffect } from "react";
 import * as Yup from "yup";
@@ -33,7 +27,7 @@ export const Signup: React.FC = () => {
   // フォームのバリデーションスキーマを定義します。
   // 各フィールドに対して必須チェックや文字数制限などのバリデーションルールを設定します。
   const validationSchema = Yup.object().shape({
-    userName: Yup.string().required("First Name is required"),
+    user_name: Yup.string().required("First Name is required"),  // userNameからusernameに変更
     email: Yup.string().required("Email is required"),
     password: Yup.string()
       .required("Password is required")
@@ -46,7 +40,7 @@ export const Signup: React.FC = () => {
   // useFormikを使用してフォームの状態とバリデーションを管理します。
   const formik = useFormik({
     initialValues: {
-      userName: "",
+      user_name: "",  // userNameからusernameに変更
       email: "",
       password: "",
       confirmPassword: "", // 確認用パスワードフィールドを追加
@@ -54,8 +48,7 @@ export const Signup: React.FC = () => {
     validationSchema,
     // フォーム送信時の処理を定義します。
     onSubmit: async (state) => {
-      // サインアップAPIを呼び出して、ユーザーを作成します。
-      console.log('おしり');
+      // サインアップAPIを呼び出して、ユーザーを作成します
       await fetchAsyncSignup(state);
       navigate("/");
     },
@@ -105,7 +98,7 @@ export const Signup: React.FC = () => {
           <Stack>
             <TextArea>名前</TextArea>
             <FormikTextField
-              name="userName"
+              name="user_name"  // userNameからusernameに変更
               label=""
               variant="standard"
               formik={formik}

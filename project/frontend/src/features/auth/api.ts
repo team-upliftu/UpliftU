@@ -6,7 +6,7 @@ import { SignupUser } from "./types";
 // ログインユーザーを非同期で取得するAPIリクエスト
 export const fetchAsyncLoginUser = async (email: string, password: string) => {
   try {
-    console.log('おしり');
+    console.log('Login request data:', { email, password });  // デバッグメッセージ
     const response = await axios.post(
       `http://localhost:8000/api/auth/login/`,
       {
@@ -23,9 +23,11 @@ export const fetchAsyncLoginUser = async (email: string, password: string) => {
     console.log(response.data);
     return response.data;
   } catch (error: any) {
-    throw error.response.data;
+    console.error('Login error:', error.response?.data || error.message);  // デバッグメッセージ
+    throw error.response?.data || error.message;
   }
 };
+
 
 // ログアウトユーザーを非同期で処理するAPIリクエスト
 export const fetchAsyncLogoutUser = async () => {
@@ -77,14 +79,34 @@ export const fetchAsyncTokenRefresh = async () => {
 // サインアップユーザーを非同期で登録するAPIリクエスト
 export const fetchAsyncSignup = async (props: SignupUser) => {
   const formedData = {
-    user_name: props.userName,
+    user_name: props.user_name, // user_nameに変更
     email: props.email,
     password: props.password,
+    re_password: props.confirmPassword,
   };
-  await axios.post("http://localhost:8000/api/auth/users/", formedData, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    withCredentials: true,
-  });
+  try {
+    console.log('おしりおしり');
+    console.log(formedData);
+    const response = await axios.post("http://localhost:8000/api/auth/users/", JSON.stringify(formedData), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    });
+    console.log('Signup successful:', response.data);
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      // Axiosエラーの場合のハンドリング
+      if (error.response) {
+        console.error('Error response:', error.response.data);
+        console.error('Status code:', error.response.status);
+        console.error('Headers:', error.response.headers);
+      } else {
+        console.error('Error message:', error.message);
+      }
+    } else {
+      // 予期しないエラーの場合のハンドリング
+      console.error('Unexpected error:', error);
+    }
+  }
 };
