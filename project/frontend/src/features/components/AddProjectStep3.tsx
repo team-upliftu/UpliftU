@@ -71,6 +71,10 @@ export const AddProjectStep3: React.FC<Props> = ({ setStep }) => {
         <TextField placeholder="例：2024年7月12日" variant="filled" InputProps={inputProps} fullWidth />
         <TitleArea>プレゼントを渡す日</TitleArea>
         <TextField placeholder="例：2024年8月12日" variant="filled" InputProps={inputProps} fullWidth />
+        <TitleArea>頻度</TitleArea>
+        <TextField placeholder="例：週に3回" variant="filled" InputProps={inputProps} fullWidth />
+        <TitleArea>プロジェクト名</TitleArea>
+        <TextField placeholder="例：花子さんに渡す誕生日プレゼント" variant="filled" InputProps={inputProps} fullWidth />
       </FormContainer>
       <ButtonContainer>
         <Button variant="contained" sx={{

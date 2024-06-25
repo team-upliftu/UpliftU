@@ -1,7 +1,8 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Box, Typography, Avatar, IconButton } from '@mui/material';
+import { Box, Button, Typography, Avatar, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   setStep: (step: number) => void;
@@ -63,7 +64,18 @@ const PersonNumber = styled(Avatar)<{ bgcolor: string }>(({ bgcolor }) => ({
   fontWeight: 'bold',
 }));
 
+const ButtonContainer = styled(Box)({
+  display: 'flex',
+  justifyContent: 'space-between',
+  position: 'fixed',
+  bottom: '10vw',
+  left: '10vw',
+  right: '10vw',
+});
+
 export const AddProjectStep1: React.FC<Props> = ({ setStep }) => {
+  const navigate = useNavigate();
+  
   const persons: Person[] = [
     { name: '筒井 智哉', number: 3, bgcolor: '#F28B82' },
     { name: '筒井 智哉', number: 3, bgcolor: '#AED581' },
@@ -82,6 +94,10 @@ export const AddProjectStep1: React.FC<Props> = ({ setStep }) => {
 
   const handleItemClickTo3 = () => {
     setStep(3); // ステップを3に変更
+  };
+
+  const handleClick = () => {
+    navigate(`/`);
   };
 
   return (
@@ -108,6 +124,18 @@ export const AddProjectStep1: React.FC<Props> = ({ setStep }) => {
           </PersonItem>
         ))}
       </PersonList>
+      <ButtonContainer>
+        <Button onClick={handleClick} variant="contained" sx={{
+          backgroundColor: '#A8D1D1',
+          color: '#333',
+          borderRadius: '25px',
+          padding: '8px 35px',
+          fontWeight: 'bold',
+          fontSize: '17px',
+        }} >
+          戻る
+        </Button>
+      </ButtonContainer>
     </Container>
   );
 };
