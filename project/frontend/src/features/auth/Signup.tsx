@@ -55,6 +55,7 @@ export const Signup: React.FC = () => {
     // フォーム送信時の処理を定義します。
     onSubmit: async (state) => {
       // サインアップAPIを呼び出して、ユーザーを作成します。
+      console.log('おしり');
       await fetchAsyncSignup(state);
       navigate("/");
     },

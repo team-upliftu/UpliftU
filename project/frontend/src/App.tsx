@@ -16,10 +16,10 @@ function App() {
       <>
         <CssBaseline />
         <Routes>
-          {/* <Route path="/" element={<PrivateRoute element={<AppLayout />} />}> */}
+          <Route path="/" element={<PrivateRoute element={<AppLayout />} />}>
           <Route index element={<Home />} />
-          {/* </Route> */}
-          <Route index element={<Home />} />
+          </Route>
+          {/* <Route index element={<Home />} /> */}
           <Route path="/startscreen" element={<StartScreen />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />

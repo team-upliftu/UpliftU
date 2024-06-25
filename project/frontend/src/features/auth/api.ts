@@ -6,6 +6,7 @@ import { SignupUser } from "./types";
 // ログインユーザーを非同期で取得するAPIリクエスト
 export const fetchAsyncLoginUser = async (email: string, password: string) => {
   try {
+    console.log('おしり');
     const response = await axios.post(
       `http://localhost:8000/api/auth/login/`,
       {
