@@ -25,10 +25,10 @@ from rest_framework import routers
 # from app.views.participation import ParticipationViewSet
 from app.views.user import CustomUserViewSet
 
-# from app.views.receiver import ReceiverViewSet
-# from app.views.message import MessageViewSet
-# from app.views.project import ProjectViewSet
-# from app.views.giftHistory import GiftHistoryViewSet
+from app.views.receiver import ReceiverViewSet
+from app.views.message import MessageViewSet
+from app.views.project import ProjectViewSet
+from app.views.giftHistory import GiftHistoryViewSet
 
 # from app.views.getflowercolor import GetFlowerColorViewSet, GetFlowerColorViewSet_v2
 # from app.views import delete_my_participation, close_gathering
@@ -43,10 +43,10 @@ router = routers.DefaultRouter()
 
 router.register('users',CustomUserViewSet)
 
-# router.register('receiver', ReceiverViewSet)
-# router.register('message',MessageViewSet)
-# router.register('project',ProjectViewSet)
-# router.register('giftHistory',GiftHistoryViewSet)
+router.register('receiver', ReceiverViewSet)
+router.register('message',MessageViewSet)
+router.register('project',ProjectViewSet)
+router.register('giftHistory',GiftHistoryViewSet)
 
 # router.register('messagelogs',MessageLogsViewSet, basename='messagelogs')
 # router.register('getflowercolordetail',GetFlowerColorViewSet, basename='getflowercolordetail')

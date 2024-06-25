@@ -80,6 +80,7 @@ export const fetchAsyncSignup = async (props: SignupUser) => {
     email: props.email,
     password: props.password,
   };
+  console.log(formedData);
   await axios.post("http://localhost:8000/api/auth/users/", formedData, {
     headers: {
       "Content-Type": "application/json",
