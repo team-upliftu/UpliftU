@@ -23,7 +23,7 @@ from app.views.hobbies import HobbiesViewSet
 from app.views.message import MessageViewSet
 from app.views.project import ProjectViewSet
 from app.views.giftHistory import GiftHistoryViewSet
-
+from app.views.user import CustomUserViewSet
 
 router = routers.DefaultRouter()
 router.register('receiver', ReceiverViewSet)
@@ -31,8 +31,12 @@ router.register('hobbies',HobbiesViewSet)
 router.register('message',MessageViewSet)
 router.register('project',ProjectViewSet)
 router.register('giftHistory',GiftHistoryViewSet)
+router.register('users',CustomUserViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('api/auth/', include('auth.urls')),
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/',include('djoser.urls.jwt')),
     path('', include(router.urls)),
 ]
